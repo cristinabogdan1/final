@@ -25,26 +25,30 @@ From non-alcoholic to alcoholic drinks, you can find something to easy your thir
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="/images/Flowers2.jpg" alt="Cristina" style="width:100%">
+                                <img src="/images/Flowers2.jpg" alt="Cristina" style="width:100%">
       <div class="container">
         <h2>Cristina Bogdan</h2>
         <p class="title">CEO & Founder</p>
         <p>A passionate food creator</p>
         <p>cristinabogdan@yahoo.com</p>
-        <p><button class="button">Contact</button></p>
+        
+        
+          <%= link_to 'contact',"/tocontact" , :class => "button", :role => "button" %>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="/images/Flowers3.jpg" alt="Tengfei" style="width:100%">
+      
+                              <img src="/images/Flowers3.jpg" alt="Tengfei" style="width:100%">
       <div class="container">
         <h2>Tengfei Cui</h2>
         <p class="title">Art Director</p>
         <p>An Asian Food lover and chef</p>
         <p>tengfeicui@ncirl.com</p>
-        <p><button class="button">Contact</button></p>
+        <%= link_to 'contact',"/tocontact" , :class => "button", :role => "button" %>
+   
       </div>
     </div>
   </div>

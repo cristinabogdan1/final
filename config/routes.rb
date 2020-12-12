@@ -34,8 +34,9 @@ Rails.application.routes.draw do
    get '/contact' => 'static_pages#contact'
    
    get '/products' => 'items#index'
-
-
+    
+  get'/tocontact'  => 'static_pages#contact'
+ 
   get '/pretend_login' => 'user#pretendlogin'
   
   get '/pretend_logout' => 'user#pretendlogout'
