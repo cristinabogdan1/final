@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+
+
+
+
+
 <h1>Orders</h1>
 
 <table>
@@ -13,6 +18,7 @@
   </thead>
 
   <tbody>
+ 
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.order_date %></td>
@@ -29,3 +35,4 @@
 <br>
 
 <%= link_to 'New Order', new_order_path %>
+<%= link_to 'User status', "/alluser" %>

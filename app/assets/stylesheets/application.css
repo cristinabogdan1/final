@@ -225,7 +225,7 @@ img{
 }
 
 input, textarea, select{
-  background: #f7f9f8 !important;
+  background: #9400D3 !important;
 }
 
 .email-us{
@@ -234,7 +234,7 @@ input, textarea, select{
 
 label{
   font-weight: 600;
-  color: #716f6f
+  color: 	#4B0082
 }
 
 button{

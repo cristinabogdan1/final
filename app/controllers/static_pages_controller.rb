@@ -17,6 +17,15 @@ class StaticPagesController < ApplicationController
   end
   
   
+  def alluser
+    
+  @users= User.all
+  
+  
+  
+  end
+  
+  
   def adminsection
     @orders = Order.all
     
@@ -30,4 +39,25 @@ class StaticPagesController < ApplicationController
     
     
   end
+  
+  def search
+     st = "%#{params[:q]}%"
+     @items = Item.where("title like ?", st)
+  end
+  
+  
+   def upgrade
+   
+     
+     @user= User.find_by(id:params[:id])
+        @user.update_attribute(:admin, true)
+        redirect_to "/alluser"
+    end
+    
+    def downgrade
+        @user= User.find_by(id:params[:id])
+       @user.update_attribute(:admin, false)
+         redirect_to "/"
+    end    
+  
 end
