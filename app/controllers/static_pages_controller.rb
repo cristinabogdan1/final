@@ -17,6 +17,15 @@ class StaticPagesController < ApplicationController
   end
   
   
+  def sendmessage
+    
+   
+  end
+  
+  
+  
+  
+  
   def alluser
     
   @users= User.all
@@ -59,5 +68,23 @@ class StaticPagesController < ApplicationController
        @user.update_attribute(:admin, false)
          redirect_to "/"
     end    
+  
+  
+  def category
+    catName = params[:title]
+    @items = Item.where("category like ? ", catName)
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 end

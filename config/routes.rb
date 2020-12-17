@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :orders do
       
       resources:orderitems
@@ -59,7 +60,7 @@ Rails.application.routes.draw do
   
   get '/alluser' => 'static_pages#alluser'
   
-  
+   get '/sendmessage' => 'static_pages#sendmessage'
   
   #
 

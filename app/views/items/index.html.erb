@@ -2,7 +2,7 @@
 
  <div id="itemsContainer">
   
-  <h1>Items</h1>
+  <h1>menu</h1>
      
       <% @items.each do |item| %>
       <div class="itemhols">
@@ -20,15 +20,19 @@
        
        <p>
         
-        
-        
          
-         <% if session[:login] == 1%>
+         <% if user_signed_in?%>
          
-          <%= link_to 'Show',  item, :class => "button", :role => "button" %>
+         
+         
+         <%= link_to 'Show',  item, :class => "button", :role => "button" %>
+         
+         <% if current_user.admin? %>
          
          <%= link_to 'Edit',  edit_item_path(item), :class => "button", :role => "button" %>
          <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+       
+         <% end %>
          <% end %>
          
          
@@ -44,5 +48,15 @@
 </div>
 
 <br>
-<%= link_to 'New Item',  new_item_path, :class => "button", :role => "button" %>
 
+<h1>wish you love our food </h1>
+
+
+<% if current_user.admin? %>
+<%= link_to 'New dish',  new_item_path, :class => "button", :role => "button" %>
+
+
+
+
+<%= link_to 'New category',new_category_path, :class => "button", :role => "button" %>  
+ <% end %>

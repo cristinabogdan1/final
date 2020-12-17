@@ -1,6 +1,6 @@
 <% if @cart.empty? %>
 
-<h1>Bebhinn said you need to spend some money with us.... Go add products</h1>
+<h1>you havenot order yet ,would you like our new food</h1>
 
 <% end %>
 
@@ -27,7 +27,9 @@
         
             <td>
                 <div class="image">
-                    <%= link_to (image_tag item.image_url, :style =>"height:40px"), item %>
+                    
+                      <%= link_to (image_tag item.image_url, :style =>"height:40px"), item %>
+                    
                 </div>
                 
             </td>
