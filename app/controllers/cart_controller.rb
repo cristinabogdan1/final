@@ -13,6 +13,8 @@ class CartController < ApplicationController
        end  
     
     
+    
+    
   end
 
 
@@ -103,7 +105,9 @@ end
     
     
     # Step three - Save each order item from the cart into the orderitems table 
-    @cart = session[:cart] || {} # This gets the items from the users cart session
+    
+    
+   @cart = session[:cart] || {} # This gets the items from the users cart session
     
     @cart.each do | id, quantity |
       
