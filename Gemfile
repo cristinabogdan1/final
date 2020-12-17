@@ -38,11 +38,12 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'sqlite3', '~> 1.3.6'
+
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+    gem 'sqlite3', '~> 1.3.6'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -51,7 +52,7 @@ group :development do
 end
 
 group :production do
-  #gem 'pg' '>= 1.2.3'
+  gem 'pg', '>= 1.2.3'
  #find teh version of the PG gem that works with what you have and do an bunble install then save to github  
   gem 'rails_12factor'
 end

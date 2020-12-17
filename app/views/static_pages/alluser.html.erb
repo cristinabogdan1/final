@@ -1,5 +1,5 @@
 
-<h1>Heool here are all the users</h1>
+<h1>this page will show  all the users</h1>
 
 
 
@@ -7,7 +7,7 @@
 
 <div class="mainCont">
     
-    <h1>All The People...... So Many People....</h1>
+    <h1>all the users show below :</h1>
     
 <% @users.each do |user| %>
 
@@ -18,6 +18,7 @@
    <h1>email: <%= user.email %></h1>
    <h1>Admin: <%= user.admin %></h1>
     <p><a href="/upgrade/<%= user.id %>" class="button">Make Admin</a></p>
+    
     <p><a href="/downgrade/<%= user.id %>" class="button">remove Admin</a></p>
     
     </div>
