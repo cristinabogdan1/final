@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
   resources :categories
+  
   resources :orders do
       
-      resources:orderitems
-      
+   resources:orderitems
     end  
   
   
+  get '/profile' => 'static_pages#userprofile'
   
   
   
   devise_for :users do
       
       resources:orders
+      
      end 
   
   get '/paid/:id' => 'static_pages#paid'
@@ -24,9 +26,13 @@ Rails.application.routes.draw do
   get '/done' => 'cart#done'
   
   get 'cart/index'
+  
+  
+  
 
-  resources :items
+   resources :items
  root 'static_pages#home'
+ 
   post '/search' => 'static_pages#search'
    get '/help' => 'static_pages#help'
 
@@ -60,9 +66,13 @@ Rails.application.routes.draw do
   
   get '/alluser' => 'static_pages#alluser'
   
+  get '/myorder' => 'static_pages#myorder'
+  
    get '/sendmessage' => 'static_pages#sendmessage'
+  
+  
   
   #
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+ end

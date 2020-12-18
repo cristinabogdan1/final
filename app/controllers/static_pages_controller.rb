@@ -34,14 +34,36 @@ class StaticPagesController < ApplicationController
   
   end
   
+  def myorder
+      
+   @orderitems = Orderitem.all
+   @orderitems = Orderitem.where(order_id: params[:id])   
+      
+   @user= User.find(current_user.id)
+   @orders = @user.orders.all
+  end
+  
   
   def adminsection
-    @orders = Order.all
+      
+     
+     if user_signed_in? 
+     @orders = Order.all
+  else
+    redirect_to "/"
+  end
+      
+      
+    
     
   end
   
   
   def paid
+      
+    @orderitems = Orderitem.all
+    @orderitems = Orderitem.where(order_id: params[:id]) 
+      
     @order = Order.last
     
     @order.update_attribute(:status, 'This Has Been Paid')
@@ -50,8 +72,13 @@ class StaticPagesController < ApplicationController
   end
   
   def search
+      
      st = "%#{params[:q]}%"
-     @items = Item.where("title like ?", st)
+     @items = Item.where("title like ?"&&"category like ?" , st)
+     
+      
+      
+      
   end
   
   
@@ -68,6 +95,12 @@ class StaticPagesController < ApplicationController
        @user.update_attribute(:admin, false)
          redirect_to "/"
     end    
+    
+    
+  def  userprofile
+      @user=User.find(current_user)   
+      
+  end
   
   
   def category
@@ -83,7 +116,11 @@ class StaticPagesController < ApplicationController
   
   
   
-  
+  def show 
+        
+     @user=User.find(current_user)   
+        
+    end
   
   
   

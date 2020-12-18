@@ -1,3 +1,8 @@
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 
@@ -33,14 +38,16 @@
 </table>
 
 <br>
-
+ 
 
 
 
 <%= link_to 'New Order', new_order_path %>
 
 
-<%= link_to 'apply admin ', "/admin" %>
+<%if user_signed_in? %>
 
 
 <p><%= link_to 'User status', "/alluser" %></p>
+
+<% end %>

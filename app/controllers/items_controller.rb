@@ -13,12 +13,23 @@ class ItemsController < ApplicationController
   end
 
   # GET /items/new
+  
+  
   def new
+    if user_signed_in? && current_user.admin? 
     @item = Item.new
+  else
+    redirect_to "/"
   end
-
+end
   # GET /items/1/edit
   def edit
+     if user_signed_in? && current_user.admin? 
+ 
+  else
+    redirect_to "/"
+  end
+    
   end
 
   # POST /items

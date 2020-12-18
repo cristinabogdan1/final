@@ -10,15 +10,33 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+   @orderitems = Orderitem.all
+   @orderitems = Orderitem.where(order_id: params[:id]) 
+ 
+    @user = User.find(current_user.id)
+    @orders = @user.orders.all
+    
+  
   end
 
   # GET /orders/new
   def new
-    @order = Order.new
+    if user_signed_in?
+ @order = Order.new
+  else
+    redirect_to "/"
+  end
+    
+    
   end
 
   # GET /orders/1/edit
   def edit
+   if user_signed_in? && current_user.admin? 
+ 
+  else
+    redirect_to "/"
+  end
   end
 
   # POST /orders
@@ -40,6 +58,8 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    
+    
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }

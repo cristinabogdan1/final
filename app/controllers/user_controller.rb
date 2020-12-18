@@ -17,6 +17,14 @@ class UserController < ApplicationController
     redirect_to :controller => :items
     end
     
+    def show 
+        
+     @user=User.find(current_user)   
+        
+    end
+    
+    
+    
     
 end
 

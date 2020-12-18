@@ -13,20 +13,21 @@
       
         <li><%= link_to "Contact", "/contact" %></li>
          <li><%= link_to "Cart", "/cart" %></li>
-        
+         <li><%= link_to "profile", "/profile" %></li>
         
         
      <% if user_signed_in? %>
-                 <li><a href="#">Hi <%= current_user.email %></a></li>
+                 <li><a href="/myorder">Hi <%= current_user.email %></a></li>
                  <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
                    <li><%= link_to "Admin", "/admin" %></li>
+                      <li><%= link_to "orders", "/myorder" %></li>
           <% else %>
           
                  <li><%= link_to 'Register', new_user_registration_path %></li> 
                  <li><%= link_to 'Sign in', new_user_session_path %></li>
           <% end %>
 
-  
+        
 
       </ul>
       
